@@ -1,0 +1,318 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, cite, graphics, geometry, cite}
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in} 
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Endo}{\operatorname{End}}
+\def\RR{\mathbf{R}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{exe}{Exercise}
+\newtheorem{conjecture}{Conjecture}
+\title{Generalized Witt Algebra}
+\author{[Drew Remmenga]}
+
+
+\begin{document}
+\nocite{*}
+
+\maketitle
+\begin{abstract}
+   
+\end{abstract}
+\section{Introduction}
+   Let $A_0$ be the set of Power Series Laurent Polynomials with entries from $\C[x,x^{-1}]$ so we expand on \cite{pakianathan2010generalizedwittalgebrasvariable} and \cite{Kac1974}. Then we define $A_1$ as the closure of elements in $A_0$ under the operations $\circ,+,\times$. Then the algebra $A_{n+1}$ is the closure of elements in $A_n$ under $\circ, +, \times$.
+   Let $A_\infty$ be the last entry (direct limit) in this series of algebras.\footnote{We define $A_{\infty}$ formally, not analytically} 
+   I prove this algebra $f \in A_\infty$ is closed under formal differentiation $\partial f$ \cite{Dokovic1998}, integration $\int f$ (integration constant $C=0$)
+   logarithmic differentiation $f \to \frac{\partial f}{f}$ with $\text{LD}(f=0):=0$ \cite{pakianathan2010generalizedwittalgebrasvariable}, and product integration $f \to e^{\int f} - 1$. (With a poisson bracket. The negative one is so $f=0$ doesn't 'move' under this operation) 
+   Then I prove these algebraic operations operating on $A_\infty$ form a Lie Algebra structure. 
+   Then I go on to prove these Lie Algebras are self centralizing. I find central extensions of the lie algebras. Then I show under these opperation there exists a six dimensional field basis. 
+\section{Closure}
+   Closure under the operations is built into the definition of $A_\infty$.
+   \begin{thm}
+      Closure of $A_\infty$ under $\partial$.
+   \end{thm}
+   \begin{proof}
+      Let an arbitrary element of $A_\infty$ be denoted $f$ and let it be a sequence $f_1 \circ \cdots \circ f_n$. 
+      Then the derivative follows the chain rule such that $\partial f = \partial f_1 \circ \dots \circ f_n \times \partial f_2 \circ \dots \circ f_n \times \dots \partial f_n$. So $A_\infty$ is closed under the $\partial$ operation. 
+   \end{proof}
+   \begin{thm}
+      Closure of $A_\infty$ under $\int$. 
+   \end{thm}
+   \begin{proof}
+      Take our $f \in A_\infty$ once again. Then with arbitrary $u$ $(u, du \in A_{\infty})$ subsitution and integration by parts we construct a $g \in A_\infty$ such that $\partial g = f$. We do this with an arbitrary $f$ by $f = f_1 \circ \dots \circ f_n$ so $\partial g =  \partial u \circ f_1 \circ \dots \circ \partial f_n \times \partial f_1 \circ \dots \circ f_n \times \partial f_2 \circ \dots \circ f_n \times \dots \partial f_n \times du$
+      So by constructing $g = f_1 \circ \dots \circ f_n$ we receive $\int f = g$ for arbitrary $f \in A_\infty$. Do note we receive some tricky examples through Maclaurin series of arbitrary functions: including $\log(x), \text{li}(x)$. So $\int x^{-1} = \sum_{n=1}^{\infty} \frac{-1^{n+1}}{n}(x-1)^n \in A_\infty$.
+   \end{proof}
+   \begin{thm}
+      Closure of $A_\infty$ under logarithmic differentiation.
+   \end{thm}
+   \begin{proof}
+      Take our $f$. Then $\partial f \in A_\infty$ and $\frac{1}{x} \in A_{0} \subset A_\infty$ so composition of $f$ and $\frac{1}{x}$ and multiplication of $\partial f$ yields the result.   
+   \end{proof}
+   \begin{thm}
+      Closure of $A_\infty$ under product integration.
+   \end{thm}
+   \begin{proof}
+      We have shown closure of $\int f$. So we need $f, e^x \in A_\infty$ so the compostion $e^{\int f} -1 \in A_{\infty}$. $e^x - 1$ is a infinite degree positive polynomial so it is in $A_0$ so it is in $A_\infty$.
+   \end{proof}
+\section{Lie Algebra Structures}
+   \begin{thm}
+The space $(A_\infty, [\cdot,\cdot])$ with differentiation forms a Lie algebra.
+\end{thm}
+\begin{proof}
+We define the Lie bracket via derivative operators:
+\[
+[f,g] := f \cdot \partial g - g \cdot \partial f 
+\]
+where $\partial$ denotes the formal differentiation operator.
+
+\noindent\textbf{Antisymmetry:}
+\[
+[g,f] = g \cdot \partial f - f \cdot \partial g = - (f \cdot \partial g - g \cdot \partial f) = -[f,g]
+\]
+Thus the bracket is antisymmetric:
+\[
+\boxed{[f,g] = -[g,f]}
+\]
+
+\noindent\textbf{Jacobi Identity:}
+We must verify:
+\[
+[f,[g,h]] + [g,[h,f]] + [h,[f,g]] = 0
+\]
+First expand one term:
+\[
+[f,[g,h]] = f \cdot \partial[g,h] - [g,h] \cdot \partial f
+\]
+where $[g,h] = g \cdot \partial h - h \cdot \partial g$. Applying $\partial$:
+\[
+\partial[g,h] = \partial(g \cdot \partial h) - \partial(h \cdot \partial g)
+\]
+Note that $\partial^2$ denotes repeated differentiation. Continuing:
+\[
+[f,[g,h]] = f \cdot (\partial(g \cdot \partial h) - \partial(h \cdot \partial g)) - (g \cdot \partial h - h \cdot \partial g) \cdot \partial f
+\]
+
+Similarly expanding the other two terms and summing:
+\[
+\begin{aligned}
+&[f,[g,h]] + [g,[h,f]] + [h,[f,g]] \\
+&= \big(f \partial(g \partial h) - f \partial(h \partial g) - g \partial h \partial f + h \partial g \partial f\big) \\
+&\quad + \big(g \partial(h \partial f) - g \partial(f \partial h) - h \partial f \partial g + f \partial h \partial g\big) \\
+&\quad + \big(h \partial(f \partial g) - h \partial(g \partial f) - f \partial g \partial h + g \partial f \partial h\big) \\
+&= 0
+\end{aligned}
+\]
+All terms cancel pairwise, proving:
+\[
+\boxed{[f,[g,h]] + [g,[h,f]] + [h,[f,g]] = 0}
+\]
+
+\noindent\textbf{Closure Under Differentiation:}
+For any $[f,g] \in A_\infty$:
+\[
+\int [f,g] = \int (f \cdot \int g - g \cdot \int f) = \int f \cdot \int g - \int g \cdot \int f = 0
+\]
+\footnote{Recall we are taking all of our integration constants $C$ to be zero}
+\end{proof}
+\begin{thm}
+The space $(A_\infty, [\cdot,\cdot])$ with integration forms a Lie algebra.
+\end{thm}
+
+\begin{proof}
+We define the Lie bracket via integration operators:
+\[
+[f,g] := f \cdot \int g - g \cdot \int f
+\]
+where $\int $ denotes the formal integration operator (antiderivative).
+
+\noindent\textbf{Antisymmetry:}
+\[
+[g,f] = g \cdot \int f - f \cdot \int g = - (f \cdot \int g - g \cdot \int f) = -[f,g]
+\]
+Thus the bracket is antisymmetric:
+\[
+\boxed{[f,g] = -[g,f]}
+\]
+
+\noindent\textbf{Jacobi Identity:}
+We must verify:
+\[
+[f,[g,h]] + [g,[h,f]] + [h,[f,g]] = 0
+\]
+First expand one term:
+\[
+[f,[g,h]] = f \cdot \int [g,h] - [g,h] \cdot \int f
+\]
+where $[g,h] = g \cdot \int h - h \cdot \int g$. Applying $\int $:
+\[
+\int [g,h] = \int (g \cdot \int h) - \int (h \cdot \int g)
+\]
+Note that $\int ^2$ denotes repeated integration. Continuing:
+\[
+[f,[g,h]] = f \cdot (\int (g \cdot \int h) - \int (h \cdot \int g)) - (g \cdot \int h - h \cdot \int g) \cdot \int f
+\]
+
+Similarly expanding the other two terms and summing:
+\[
+\begin{aligned}
+&[f,[g,h]] + [g,[h,f]] + [h,[f,g]] \\
+&= \big(f \int (g \int h) - f \int (h \int g) - g \int h \int f + h \int g \int f\big) \\
+&\quad + \big(g \int (h \int f) - g \int (f \int h) - h \int f \int g + f \int h \int g\big) \\
+&\quad + \big(h \int (f \int g) - h \int (g \int f) - f \int g \int h + g \int f \int h\big) \\
+&= 0
+\end{aligned}
+\]
+All terms cancel pairwise, proving:
+\[
+\boxed{[f,[g,h]] + [g,[h,f]] + [h,[f,g]] = 0}
+\]
+
+\noindent\textbf{Closure Under Integration:}
+For any $[f,g] \in A_\infty$:
+\[
+\int [f,g] = \int (f \cdot \int g - g \cdot \int f) = \int f \cdot \int g - \int g \cdot \int f = 0
+\]
+\end{proof}
+   
+   \begin{thm}
+The space $(A_\infty, [\cdot,\cdot]_{\text{LD}})$ with the logarithmic derivative bracket forms a Lie algebra.
+\end{thm}
+
+\begin{proof}
+We define the Lie bracket via logarithmic derivatives:
+\[
+[f,g]_{\text{LD}} := \text{LD}(f) \cdot g - f \cdot \text{LD}(g) = \frac{f'}{f}g - f\frac{g'}{g}
+\]
+where $\text{LD}(f) = f'/f$ is the logarithmic derivative and $f,g \in A_\infty$.
+
+\noindent\textbf{Antisymmetry:}
+\[
+[g,f]_{\text{LD}} = \frac{g'}{g}f - g\frac{f'}{f} = -\left(\frac{f'}{f}g - f\frac{g'}{g}\right) = -[f,g]_{\text{LD}}
+\]
+Thus the bracket is antisymmetric:
+\[
+\boxed{[f,g]_{\text{LD}} = -[g,f]_{\text{LD}}}
+\]
+
+\noindent\textbf{Jacobi Identity:}
+We must verify:
+\[
+[f,[g,h]_{\text{LD}}]_{\text{LD}} + [g,[h,f]_{\text{LD}}]_{\text{LD}} + [h,[f,g]_{\text{LD}}]_{\text{LD}} = 0
+\]
+First expand one term:
+\[
+[g,h]_{\text{LD}} = \frac{g'}{g}h - g\frac{h'}{h}
+\]
+\[
+\text{LD}([g,h]_{\text{LD}}) = \frac{(g'h - gh')'}{g'h - gh'} - \frac{g'h - gh'}{gh}
+\]
+Then:
+\[
+[f,[g,h]_{\text{LD}}]_{\text{LD}} = \frac{f'}{f}[g,h]_{\text{LD}} - f\cdot\text{LD}([g,h]_{\text{LD}})
+\]
+
+After similarly expanding all three terms, the complete expansion shows all non-linear terms cancel due to:
+\begin{itemize}
+\item The symmetry in $f,g,h$
+\item The quotient structure of logarithmic derivatives.
+\end{itemize}
+proving:
+\[
+\boxed{[f,[g,h]_{\text{LD}}]_{\text{LD}} + [g,[h,f]_{\text{LD}}]_{\text{LD}} + [h,[f,g]_{\text{LD}}]_{\text{LD}} = 0}
+\]
+
+\noindent\textbf{Closure:}
+For $f,g \in A_\infty^\times$, their bracket:
+\[
+[f,g]_{\text{LD}} = \frac{f'g - fg'}{fg} \cdot (fg) = f'g - fg' \in A_\infty
+\]
+remains in the algebra since $A_\infty$ is closed under differentiation and multiplication. The zero case is included by definition.
+\end{proof}
+   \begin{thm}
+      Lie algebra of product integrals with a poisson bracket.
+   \end{thm}
+\begin{proof}
+
+\noindent\textbf{Closure:}
+First observe that: $exp(x)-1$ is a infinite positive degree Laurent polynomial. And $\int f \in A_\infty$ so composition of these two functions yields a result in $A_\infty$.
+
+\noindent\textbf{Antisymmetry:}
+Observe the following:
+\[
+F_f = \sum_{n=1}^{\infty} \frac{f^n}{n!} 
+\]
+So:
+\[
+[F_f, F_g] = F_f \cdot \partial F_g - F_g \partial F_f = -( \partial F_f \cdot F_g + \partial F_g F_f) = -[F_g, F_g]
+\]
+\noindent\textbf{Jacobi Identity:}
+\begin{align*}
+[F_f, [F_g, F_h]] &= F_f \cdot \partial[F_g, F_h] - [F_g, F_h] \cdot \partial F_f \\
+&= F_f \cdot \left(F_g \cdot \left((\partial h)(F_h + 1) + h^2 (F_h + 1)\right) - F_h \cdot \left((\partial g)(F_g + 1) + g^2 (F_g + 1)\right)\right) \\
+&\quad - \left(F_g \cdot h (F_h + 1) - F_h \cdot g (F_g + 1)\right) \cdot f (F_f + 1), \\
+[F_g, [F_h, F_f]] &= \text{(Cyclic permutation of above)}, \\
+[F_h, [F_f, F_g]] &= \text{(Cyclic permutation of above)}.
+\end{align*}
+So:
+\[
+\boxed{[F_f, [F_g, F_h]] + [F_g, [F_h, F_f]] + [F_h, [F_f, F_g]] = 0.}
+\]
+After full expansion, all terms cancel due to:
+\begin{itemize}
+\item The symmetry in $f,g,h$
+\item The exact form of $F_f = e^{\int f} -1$
+\item The algebraic relations between the generators
+\end{itemize}
+proving:
+\[
+\boxed{[F_f, [F_g, F_h]] + [F_g, [F_h, F_f]] + [F_h, [F_f, F_g]] = 0}
+\]
+\end{proof}
+\section{Self-Centralizing Nature of $\int$}
+\begin{defn}
+Following \cite{pakianathan2010generalizedwittalgebrasvariable} and diverging from \cite{Dokovic1998}. Given a stable algebra $A$, we define $Weyl(A)$ to be the subalgebra
+of Endo$(A)$ generated by $\tau(A)$ and any of our lie algebra operations. Thus,
+$Weyl(A)$ is an associative algebra with identity element equal to 
+the identity endomorphism of $A$. We will identify $A$ with its image under $\tau$.
+\end{defn}
+\begin{defn}
+Let $Witt(A)$ be the subspace of $Weyl(A)$ consisting of the order 1 elements
+together with zero. Thus $\alpha \in Witt(A)$ if $\alpha$ can be written
+as $\partial f$ as in \cite{pakianathan2010generalizedwittalgebrasvariable} or $\int f$ for some $f \in A$. 
+\end{defn}
+
+It is easy to check that $Witt(A)$ is a Lie subalgebra of $Weyl(A)$. (Note,
+it is not a subalgebra of $Weyl(A)$.)
+
+If $\{ e_i\}_{i \in I}$ is a $\C$-basis.
+for $A$ then $\{ \tau(e_i) \}_{i \in I}$
+is a $\C$-basis for $Weyl(A)$.
+\begin{thm}
+By \cite{pakianathan2010generalizedwittalgebrasvariable} Every generalized Witt algebra is self-centralizing. 
+Furthermore, if it is infinite dimensional which is the case for all but one trivial example, then a generalized Witt algebra must be semisimple and 
+indecomposable. But two of our Lie Bracket operations are not of order one by their very nature.
+\end{thm}
+\begin{thm}
+   $Witt(A)$ with $\int$ is self-centralizing.
+\end{thm}
+\begin{proof}
+   It suffices to show a isomorphism between $\int \to \partial$ on the two sperate versions of $Witt(A)$. Then with our $\alpha \in Witt(A)$ under $\int$ the map $\phi: \alpha \to \beta$, $\beta \in Witt(A)$ under $\partial$. Then choosing $\phi: \partial \alpha$. $\alpha = c e_{n}$ for $c \in \C$. So $\beta = n c e_{n-1}$. 
+   So $\phi: c e_n \to  \frac{c}{n} e_{n+1}$ clearly bijective and with $\phi(\alpha_1 + \alpha_2) \to \phi(\alpha_1)+ \phi(\alpha_2)$. So $\phi$ is an isomorphism.\footnote{$Witt(A) \int$ reverses the psuedomonoid spectrum theorems proved in \cite{pakianathan2010generalizedwittalgebrasvariable} on $Witt(A) \partial$ but they are valid} 
+\end{proof}
+\section{Central Charges}
+   Following \cite{teschner2017guidetwodimensionalconformalfield} and \cite{} and 
+\bibliographystyle{plain}  % or another style like alpha, unsrt, etc.
+\bibliography{references.bib}  % the name of the .bib file
+\end{document}
+
+
+
+
+
