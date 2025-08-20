@@ -102,7 +102,7 @@ The results highlight the algebraic richness of $A$ and open new avenues for con
       Closure of $A$ under product integration.
    \end{thm}
    \begin{proof}
-      Take our $f$. Then by Theorem \ref{thm:2} $\int f = g \in A$. Then $exp(g) \to \sum_{j=0}^{\infty} \frac{g^j}{j!} - 1 = F_f \in A$. 
+      Take our $f$. Then by Theorem \ref{thm:2} $\int f = g \in A$. Then $\exp(g) \to \sum_{j=0}^{\infty} \frac{g^j}{j!} - 1 = F_f \in A$. \footnote{We define the product integral with the subtraction of one after the exponent so that the zero function $f=0$ doesn't 'move' under the operation.}
       And finally, so I have closure of our bracket, and by Theorem \ref{thm:1} $\partial F_f \in A$    
 \end{proof}
 \section{Lie Algebra Structures}
@@ -262,11 +262,11 @@ proving:
 \]
 
 \noindent\textbf{Closure:}
-For $f,g \in A^\times$, their bracket:
+For $f,g \in A$, their bracket:
 \[
 [f,g]_{\text{LD}} = \frac{f'g - fg'}{fg} \cdot (fg) = f'g - fg' \in A
 \]
-remains in the algebra since $A$ is closed under differentiation and multiplication. The zero case is included by definition. 
+remains in the algebra since $A$ is closed under differentiation, division, and multiplication. The zero case is included by definition. 
 \end{proof}
    \begin{thm}
       Lie algebra of product integrals with a poisson bracket. $[f,g]_\text{PROD} := F_f \partial (F_g) - F_g \partial (F_f)$.
@@ -403,8 +403,8 @@ of the equivalent conditions of the above theorem.
    
       \begin{align}
           [e_\xi, e_\mu]_\text{PROD} &= F_{e_{\xi}} \partial F_{e_{\mu}} - F_{e_{\mu}} \partial F_{e_{\xi}} \nonumber \\
-          &= exp(\frac{1}{i \pi \xi}e_\mu) \partial exp(\frac{1}{i \pi \mu} e_\xi) - exp(\frac{1}{i \pi \mu}e_\mu) \partial exp(\frac{1}{i \pi \xi} e_\xi) \nonumber \\
-          &= exp(\frac{1}{i \pi \xi}e_\mu + \frac{1}{i \pi \mu \xi} e_\xi)- exp(\frac{1}{i \pi \mu}e_\mu+\frac{1}{i \pi \xi}e_\xi) \label{eq:1}
+          &= \exp(\frac{1}{i \pi \xi}e_\mu) \partial \exp(\frac{1}{i \pi \mu} e_\xi) - \exp(\frac{1}{i \pi \mu}e_\mu) \partial \exp(\frac{1}{i \pi \xi} e_\xi) \nonumber \\
+          &= \exp(\frac{1}{i \pi \xi}e_\mu + \frac{1}{i \pi \mu \xi} e_\xi)- \exp(\frac{1}{i \pi \mu}e_\mu+\frac{1}{i \pi \xi}e_\xi) \label{eq:1}
       \end{align}
       The commutation relations in equation \ref{eq:1} are spookily similar to those of the free field representation of the Virasoro algebra given by equation 2.10 in \cite{teschner2017guidetwodimensionalconformalfield}.
    \section{Further Research}
