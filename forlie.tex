@@ -102,8 +102,7 @@ The results highlight the algebraic richness of $A$ and open new avenues for con
       Closure of $A$ under product integration.
    \end{thm}
    \begin{proof}
-      Take our $f$. Then by Theorem \ref{thm:2} $\int f = g \in A$. Then $\exp(g) \to \sum_{j=0}^{\infty} \frac{g^j}{j!} - 1 = F_f \in A$. \footnote{We define the product integral with the subtraction of one after the exponent so that the zero function $f=0$ doesn't 'move' under the operation.}
-      And finally, so I have closure of our bracket, and by Theorem \ref{thm:1} $\partial F_f \in A$    
+      Take our $f$. Then by Theorem \ref{thm:2} $\int f = g \in A$. Then $\exp(g) \to \sum_{j=0}^{\infty} \frac{g^j}{j!} - 1 = F_f \in A$. \footnote{We define the product integral with the subtraction of one after the exponent so that the zero function $f=0$ doesn't 'move' under the operation.} 
 \end{proof}
 \section{Lie Algebra Structures}
    \begin{thm}
@@ -263,20 +262,17 @@ proving:
 \end{proof}
    \begin{thm}
       Lie algebra of product integrals with a poisson bracket. 
-      $[f,g]_\text{PROD} := F_f \partial (F_g) - F_g \partial (F_f)$.
+      $[f,g]_\text{PROD} := f F_g - g F_f$.
    \end{thm}
 \begin{proof}
 
-\noindent\textbf{Closure:}
-Theorem \ref{thm:1} and Theorem \ref{thm:4}.
 \noindent\textbf{Antisymmetry:}
 
 \begin{align*}
-F_{f} &:= e^{\int f} - 1 \\
-\partial F_f &= e^{\int f}
+F_{f} &:= e^{\int f} - 1 
 \end{align*}
 \[
-[f,g] = F_f \partial F_g - F_g \partial F_f = -[g,f] 
+[f,g] = f F_g - g F_f = -[g,f] 
 \]
 \noindent\textbf{Jacobi Identity:}
 I must verify:
@@ -285,24 +281,21 @@ I must verify:
 \]
 First expand one term:
 \[
-[f,[g,h]_ \text{PROD}]_\text{PROD} = F_f \cdot \partial[g,h]_\text{PROD} - [g,h]_\text{PROD} \cdot \partial F_f
+[f,[g,h]_ \text{PROD}]_\text{PROD} = F_f \cdot  [g,h]_\text{PROD} - [g,h]_\text{PROD} \cdot   F_f
 \]
-where $[g,h]_\text{PROD} = F_g \cdot \partial F_h - F_h \cdot \partial F_g$. Applying $\partial$:
-\[
-\partial[g,h]_ \text{PROD} = \partial(F_g \cdot \partial F_h) - \partial(F_h \cdot \partial F_g)
-\]
+where $[g,h]_\text{PROD} = g \cdot F_h - h \cdot F_g$.
 Continuing:
 \[
-[f,[g,h]_ \text{PROD}]_\text{PROD} = F_f \cdot (\partial(F_g \cdot \partial F_h) - \partial(F_h \cdot \partial F_g)) - (F_g \cdot \partial F_h - F_h \cdot \partial F_g) \cdot \partial F_f
+[f,[g,h]_ \text{PROD}]_\text{PROD} = f \cdot F_{g \cdot F_h - h \cdot F_g} - g \cdot F_h - h \cdot F_g \cdot F_f
 \]
 
 Similarly expanding the other two terms and summing:
 \[
 \begin{aligned}
 &[f,[g,h]_ \text{PROD}]_\text{PROD} + [g,[h,f]_\text{PROD}]_\text{PROD} + [h,[f,g]_\text{PROD}]_\text{PROD} \\
-&= (F_f \partial(F_g \partial F_h) - F_f \partial(F_h \partial F_g) - F_g \partial F_h \partial F_f + F_h \partial F_g \partial F_f) \\
-&\quad +  (F_g \partial(F_h \partial F_f) - F_g \partial(F_f \partial F_h) - F_h \partial F_f \partial F_g + F_f \partial F_h \partial F_g) \\
-&\quad +  (F_h \partial(F_f \partial F_g) - F_h \partial(F_g \partial F_f) - F_f \partial F_g \partial F_h + F_g \partial F_f \partial F_h) \\
+&= f \cdot F_{g \cdot F_h - h \cdot F_g} - g \cdot F_h - h \cdot F_g \cdot F_f \\
+&\quad +  g \cdot F_{h \cdot F_f - f \cdot F_h} - h \cdot F_f - f \cdot F_h \cdot F_g\\
+&\quad +  h \cdot F_{f \cdot F_g - g \cdot F_f} - f \cdot F_g - g \cdot F_f \cdot F_h \\
 &= 0
 \end{aligned}
 \]
@@ -396,9 +389,8 @@ of the equivalent conditions of the above theorem.
       Note that the integral of an arbitrary element $e_{\xi}$ is given by $\frac{1}{i \pi \xi} e_{\xi}$. The product integral commutator yields: 
    
       \begin{align}
-          [e_\xi, e_\mu]_\text{PROD} &= F_{e_{\xi}} \partial F_{e_{\mu}} - F_{e_{\mu}} \partial F_{e_{\xi}} \nonumber \\
-          &= \exp(\frac{1}{i \pi \xi}e_\xi) \partial \exp(\frac{1}{i \pi \mu} e_\mu) - \exp(\frac{1}{i \pi \mu}e_\mu) \partial \exp(\frac{1}{i \pi \xi} e_\xi) \nonumber \\
-          &= \exp(\frac{1}{i \pi \xi}e_\xi + \frac{1}{i \pi \mu \xi} e_\mu)- \exp(\frac{1}{i \pi \mu}e_\mu+\frac{1}{i \pi \xi}e_\xi) \label{eq:1}
+          [e_\xi, e_\mu]_\text{PROD} &= e_\xi F_{e_{\mu}} - F_{e_{\mu}} e_{\xi} \nonumber \\
+          &= e_\xi (\exp(\frac{1}{i \pi \mu} e_\mu) - 1) - e_\mu(\exp(\frac{1}{i \pi \xi} e_\xi) -1) \label{eq:1}
       \end{align}
       The commutation relations in equation \ref{eq:1} are spookily similar to those of the free field representation of the Virasoro algebra given by equation 2.10 in \cite{teschner2017guidetwodimensionalconformalfield}.
    \section{Further Research}
