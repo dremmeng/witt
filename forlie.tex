@@ -99,7 +99,7 @@ The results highlight the algebraic richness of $A$ and open new avenues for con
       I know $A$ is closed under division by \cite{Hormander1958} and Theorem \ref{thm:2} and under multiplication by construction. I know $A$ is closed $\partial$ by Theorem \ref{thm:1}. So if $f \in A, \frac{f'}{f} \in A$.
    \end{proof}
    \begin{thm} \label{thm:4}
-      Closure of $A$ under product integration.
+      Closure of $A$ under product integration $(\text{PROD}(f) : f \to exp(\int f) - 1)$.
    \end{thm}
    \begin{proof}
       Take our $f$. Then by Theorem \ref{thm:2} $\int f = g \in A$. Then $\exp(g) \to \sum_{j=0}^{\infty} \frac{g^j}{j!} - 1 = F_f \in A$. \footnote{We define the product integral with the subtraction of one after the exponent so that the zero function $f=0$ doesn't 'move' under the operation.} 
@@ -386,14 +386,15 @@ of the equivalent conditions of the above theorem.
          &= i \pi (e_{\xi} - e_\mu)  
       \end{align*}
  
-      Note that the integral of an arbitrary element $e_{\xi}$ is given by $\frac{1}{i \pi \xi} e_{\xi}$. The product integral commutator yields: 
+      The product integral commutator yields: 
    
       \begin{align}
           [e_\xi, e_\mu]_\text{PROD} &= e_\xi F_{e_{\mu}} - F_{e_{\mu}} e_{\xi} \nonumber \\
           &= e_\xi (\exp(\frac{1}{i \pi \mu} e_\mu) - 1) - e_\mu(\exp(\frac{1}{i \pi \xi} e_\xi) -1) \label{eq:1}
       \end{align}
       The commutation relations in equation \ref{eq:1} are spookily similar to those of the free field representation of the Virasoro algebra given by equation 2.10 in \cite{teschner2017guidetwodimensionalconformalfield}.
-   \section{Further Research}
+      Indeed, $f \to \partial F_f$ yields the result. 
+      \section{Further Research}
    These four Lie Brackets operating on the same underlying space have the same 'flavor' as roots of a semisimple Lie algebra. 
    Additionally in the default $A$ of Laurent polynomials the integral operator and the product integral operator are both closed. 
    Remaining is to calculate central extensions of the algebras (where they exist).
