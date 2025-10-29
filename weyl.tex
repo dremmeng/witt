@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is INSTLAT2E.STY, a file containing instructions for AUTHORS of
+%  JOURNAL OF LIE THEORY
+% for LaTeX2e files.
+%
+% $Id: instlat2e.tex 26 2007-11-06 18:54:36Z mhorn $
+% ---------------------------------------------------------------------------
+% Load the article class. The following options are supported for switching the
+% document language:
+%  english, french, german
+%
+% Using one of these options ensures that the babel package is loaded with
+% the corresponding language, for correct hyphenations. 
+% Also, theorem names etc. are adjusted.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{artjltcopy}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, cite, graphics, geometry, cite}
+\usepackage{hyperref}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\?}{\textbackslash}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Endo}{\operatorname{End}}
+\def\RR{\mathbf{R}}
+\keywords{Weyl Derivative, Complexification, Zeta Functions}
+\msc{11M41,17B65,17B66,81T40}
+
+\title{A Note on the Complexified Weyl Derivative}
+\author{[Drew Remmenga drewremmenga@gmail.com]}
+\begin{document}
+
+
+\maketitle
+\begin{abstract}
+  This note explores the complexified Weyl derivative, $\partial^s$ acting on Fourier series. 
+We demonstrate that its action can be decomposed into a sum involving two generalized zeta functions. 
+A conjecture is presented regarding the non-trivial zeros of these zeta functions, suggesting that they are too "special" for the Weyl derivative to annihilate a function unless the Fourier coefficients exhibit a specific symmetry.
+\end{abstract}
+\section{Introduction}
+The study of infinite-dimensional Lie algebras, such as the Witt and Virasoro algebras, is a cornerstone of modern mathematical physics, with profound applications in conformal field theory and string theory. Central to these structures are the derivations that act on the underlying spaces of functions. In this note, we focus on a fundamental operator in this context: the complexified Weyl derivative, $\partial^s$ \cite{article}.
+Our primary result is a reformulation of this action, showing that $\partial^s f$ can be expressed as a linear combination of two generalized zeta functions, $L(-s,\chi(n)), L(-s,\chi(-n))$, where $\chi(n) =a_n e^{i n \theta}$. This decomposition connects the spectral properties of the derivative to the analytic number-theoretic properties of zeta functions. Based on this connection, we posit a conjecture (Conjecture 3.1) that the annihilation of a function by imposes a strong symmetry condition on its Fourier coefficients, as the non-trivial zeros of the associated zeta functions are generically insufficient to cause cancellation.
+\section{Generalized Zeta Functions}
+We can generalize a zeta function in the numerator of each summnation term by:
+\begin{align*}
+  L(s,\chi(n)) = \sum_{n=1}^{\infty}\frac{\chi(n)}{n^s}
+\end{align*}
+Where $\chi(n)$ depends only on $n$ but could be complex. 
+\section{The Weyl Derivative as the sum of two generalized Zeta functions}
+The Weyl derivative $\partial^s$ \cite{article} acts of fourier representable functions 
+$f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$ by:
+\begin{align*}
+  \partial^s f(\theta)= \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta}
+\end{align*}
+Then we have:
+\begin{align*}
+  \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta} &= \sum_{n=1}^\infty (in)^s a_n e^{i n \theta} + (-in)^s a_{-n} e^{-i n \theta} \\
+  &= i^s \sum_{n=1}^\infty (n)^s a_n e^{i n \theta} + (-n)^s a_{-n} e^{-i n \theta} \\
+  \chi(n) &= a_n e^{i n \theta} \\
+  &= i^s L(-s,\chi(n)) + i^s e^{i \pi s} L(-s,\chi(-n)) \\
+\end{align*}
+\begin{conjecture}
+Non-trivial zeros of generalized zeta functions are too 'special' for $\partial^s$ to ever annihilate $f$ unless $\chi(n)$ is symmetric in $n$ that is $\chi(n) = \chi(-n)$. 
+\end{conjecture}
+Furthermore, when $\chi(n)$ satisfies the conditions of a Dirichlet character we achieve $\partial^s f$ as the sum of two distinct Dirichlet-L functions. \cite{davenport2000}
+\section*{Conflict of Interest}
+On behalf of all authors, the corresponding author states that there is no conflict of interest.
+\section*{Data Availability Statement}
+This manuscript contains no external data libraries.
+\bibliographystyle{plain}  % or another style like alpha, unsrt, etc.
+\bibliography{referencescopy.bib}  % the name of the .bib file
+\end{document}
+
+
