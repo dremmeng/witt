@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\documentclass{artjltcopy}
+\documentclass{artjlt}
 
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, cite, graphics, geometry, cite}
@@ -53,13 +53,13 @@ A conjecture is presented regarding the non-trivial zeros of these zeta function
 \end{abstract}
 \section{Introduction}
 The study of infinite-dimensional Lie algebras, such as the Witt and Virasoro algebras, is a cornerstone of modern mathematical physics, with profound applications in conformal field theory and string theory. Central to these structures are the derivations that act on the underlying spaces of functions. In this note, we focus on a fundamental operator in this context: the complexified Weyl derivative, $\partial^s$ \cite{article}.
-Our primary result is a reformulation of this action, showing that $\partial^s f$ can be expressed as a linear combination of two generalized zeta functions, $L(-s,\chi(n)), L(-s,\chi(-n))$, where $\chi(n) =a_n e^{i n \theta}$. This decomposition connects the spectral properties of the derivative to the analytic number-theoretic properties of zeta functions. Based on this connection, we posit a conjecture (Conjecture 3.1) that the annihilation of a function by imposes a strong symmetry condition on its Fourier coefficients, as the non-trivial zeros of the associated zeta functions are generically insufficient to cause cancellation.
+Our primary result is a reformulation of this action, showing that $\partial^s f, s \in \C$ can be expressed as a linear combination of two generalized zeta functions, $L(-s,\chi(n)), L(-s,\chi(-n))$, where $\chi(n) =a_n e^{i n \theta}$. This decomposition connects the spectral properties of the derivative to the analytic number-theoretic properties of zeta functions. Based on this connection, we posit a conjecture (Conjecture 3.1) that the annihilation of a function by imposes a strong symmetry condition on its Fourier coefficients, as the non-trivial zeros of the associated zeta functions are generically insufficient to cause cancellation.
 \section{Generalized Zeta Functions}
 We can generalize a zeta function in the numerator of each summnation term by:
 \begin{align*}
   L(s,\chi(n)) = \sum_{n=1}^{\infty}\frac{\chi(n)}{n^s}
 \end{align*}
-Where $\chi(n)$ depends only on $n$ but could be complex. 
+Where $\chi(n)= a_n e^{i n \theta}$ depends only on $n,\theta$ but could be complex. 
 \section{The Weyl Derivative as the sum of two generalized Zeta functions}
 The Weyl derivative $\partial^s$ \cite{article} acts of fourier representable functions 
 $f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$ by:
@@ -70,13 +70,28 @@ Then we have:
 \begin{align*}
   \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta} &= \sum_{n=1}^\infty (in)^s a_n e^{i n \theta} + (-in)^s a_{-n} e^{-i n \theta} \\
   &= i^s \sum_{n=1}^\infty (n)^s a_n e^{i n \theta} + (-n)^s a_{-n} e^{-i n \theta} \\
-  \chi(n) &= a_n e^{i n \theta} \\
-  &= i^s L(-s,\chi(n)) + i^s e^{i \pi s} L(-s,\chi(-n)) \\
+&= i^s \sum_{n=1}^\infty n^s a_n e^{in\theta} + i^s \sum_{n=1}^\infty (-1)^s n^s a_{-n} e^{-in \theta} \\
+&= i^s \sum_{n=1}^\infty n^s \chi(n) + i^s (-1)^s \sum_{n=1}^\infty n^s (a_{-n} e^{-in\theta}) \\
+&= i^s L(-s, \chi(n)) + i^s (-1)^s L(-s, \chi(-n))
 \end{align*}
 \begin{conjecture}
-Non-trivial zeros of generalized zeta functions are too 'special' for $\partial^s$ to ever annihilate $f$ unless $\chi(n)$ is symmetric in $n$ that is $\chi(n) = \chi(-n)$. 
+The operator $\partial^s$ annihilates $f$ only when $s$ is a simultaneous zero of two generalized zeta functions except when $\chi(n)$ is symmetric in $n$ that is $\chi(n) = \chi(-n)$. 
+We conjecture the zeros of these generalized zeta functions are too 'special' for the operator to annihilate $f$ except for trivial $f$. 
 \end{conjecture}
 Furthermore, when $\chi(n)$ satisfies the conditions of a Dirichlet character we achieve $\partial^s f$ as the sum of two distinct Dirichlet-L functions. \cite{davenport2000}
+\section{Evidence for Conjecture 3.1}
+Putting $f$ representable by finite positive degree polynomial then $\partial^s$ annihilates $f$ for trivial $s$ given by $s = n \in \Z, n > \text{deg}(f) + 1$.
+\section{Conclusion}
+
+In this note, we have elucidated a connection between the complexified Weyl derivative and the theory of zeta functions. By expressing the action of $\partial^s$ on a Fourier series as a linear combination
+\[
+\partial^{s}f(\theta) = i^{s}L(-s, \chi(n)) + i^{s}e^{i\pi s}L(-s, \chi(-n)),
+\]
+we establish a direct bridge between spectral operators on function spaces and Dirichlet series dependent on the Fourier data of the function itself.
+
+This formulation naturally leads to Conjecture 3.1, which posits that the annihilation of a function by $\partial^s$ for a non-integer value of $s$ imposes a strong symmetry condition $\chi(n) = \chi(-n)$ on its Fourier coefficients. This conjecture stems from the perspective that the non-trivial zeros of the associated generalized zeta functions $L(s, \chi(\pm n))$ are highly specialized and cannot generically force the cancellation of the two distinct terms in the sum above.
+
+The primary implication of this work is the introduction of a number-theoretic lens through which to analyze the kernel and spectral properties of fractional differential operators. Future work will focus on providing a rigorous proof of Conjecture 3.1. This will involve a deeper study of the zero sets of the Dirichlet series $L(s, \chi(n))$ for arbitrary coefficient sequences $\{a_n\}$. Furthermore, this connection invites exploration into potential applications in conformal field theory and the study of representations of infinite-dimensional Lie algebras, where the Weyl derivative and its complex powers play a fundamental role.
 \section*{Conflict of Interest}
 On behalf of all authors, the corresponding author states that there is no conflict of interest.
 \section*{Data Availability Statement}
