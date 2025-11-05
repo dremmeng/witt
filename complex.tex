@@ -33,12 +33,14 @@
 
 \newcommand{\?}{\textbackslash}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Li}{\text{Li}}
 \newcommand{\Endo}{\operatorname{End}}
 \def\RR{\mathbf{R}}
 
-\title{A Note on the Fractional Witt Algebra}
+\title{Complex Deformations of the Witt Algebra via Weyl and $q$-Calculus}
 \author{[Drew Remmenga drewremmenga@gmail.com]}
 
 \keywords{Infinite-dimensional Lie algebras, Generalized Witt Algebras, Virasoro Algebra, Zeta functions, Weyl Derivative}
@@ -47,17 +49,30 @@
 
 \maketitle
 \begin{abstract}
-  This note extends the construction of the fractional Witt algebra from real to complex parameters. By leveraging the holomorphic Weyl derivative, which admits a natural complex extension via its action on Fourier modes, we generalize the structure constants of the algebra to complex-valued functions. Specifically, we show that the parameter $a$ in the generators $L_n^a = -ie^{-ia(n+1)\theta} \partial^a$ and the Gamma function factors $\Gamma_p(s)$ can be taken as complex numbers, while the indices $p, q$ remain integers. The resulting Lie bracket takes the form $[L_n^a, L_m^a] = A_{m,n}(s) \otimes L_{n+m}^a$, where $A_{m,n}(s)$ is now a complex-valued function. This complexification enriches the algebraic structure and opens new avenues for representation theory and applications in conformal field theory and integrable systems.
+  This paper explores extensions of the Witt algebra to fractional and complex parameters using Weyl derivatives and $q$-calculus. 
+  We generalize the classical Witt algebra by introducing complex-valued generators and structure functions, and we establish an analytic continuation of the $q$-Pochhammer symbol and the commutativity of complex parameter Weyl derivatives. 
+  A fractional Leibniz rule is extended to complex parameters, and a complexified $q$-Witt algebra is constructed. 
+  The results unify and extend earlier work by La Nave-Phillips and Purohit, providing a framework for infinite-dimensional Lie algebras with complex structure constants.
  \end{abstract}
 \section{Introduction}
-The Witt algebra is a fundamental object in the theory of infinite-dimensional Lie algebras, with deep connections to conformal field theory, integrable systems, and string theory. It is defined as the complex Lie algebra spanned by generators $\{L_n : n \in \mathbb{Z}\}$ satisfying the commutation relations
+The Witt algebra is a fundamental object in the theory of infinite-dimensional Lie algebras, with deep connections to conformal field theory, integrable systems, and mathematical physics. Classically, it is defined over the complex numbers with generators $\{L_n : n \in \mathbb{Z}\}$ satisfying the bracket relation
 \[
 [L_n, L_m] = (n - m)L_{n+m}.
 \]
-In recent years, there has been growing interest in fractional or deformed versions of this algebra, motivated by problems in theoretical physics and number theory. In particular, La Nave and Phillips \cite{LaNave2019} introduced a fractional Witt algebra parameterized by a real number $a$, using the Weyl fractional derivative. Their construction yields generators $L_n^a$ and structure constants involving Gamma functions. 
+In recent years, there has been growing interest in extending such structures to fractional and complex parameters, motivated by connections to $q$-analysis, fractional calculus, and meromorphic deformation theory.
 
-In this note, we observe that both the Weyl derivative and the Gamma function factors admit natural complex extensions. By allowing the parameter $a$ and the Gamma function arguments to take complex values, we obtain a complex-parameter Witt algebra with complex-valued structure constants. This generalization preserves the Lie algebra structure while significantly broadening its scope. Our approach builds on the holomorphic nature of the Weyl derivative and the analytic properties of the Gamma function, leading to a more flexible framework for further study.
+In this paper, we build on the work of La Nave and Phillips \cite{La_Nave_2019}, who constructed a fractional Witt algebra with real parameters, and Purohit \cite{Leibniz} who derived a $q$-analogue of the Leibniz rule. By combining these approaches, we extend the generators and structure functions to the complex domain, allowing for a richer class of Lie algebras with complex-valued structure constants.
+We outline continuous combinatorial functions for use in $q$-deformations. We extend the Weyl-derivative to complex parameters in $s$. Then we examine a complexification of the derivative parameter on three separate Witt structures. 
 
+Our main contributions include:
+\begin{itemize}
+    \item A generalization of the $q$-Pochhammer symbol and its connection to the dilogarithm and $q$-Gamma function.
+    \item An extension of the Weyl derivative to complex orders and a proof of its commutativity.
+    \item A complexified fractional Leibniz rule and its application to $q$-deformed Witt algebras.
+    \item The construction of three complex-parameter Witt algebras with meromorphic structure functions.
+\end{itemize}
+
+This work lays the groundwork for further study of deformed Virasoro algebras and their representations in the complex setting.
 \section{Witt Algebra}
 The Witt Algebra is defined as follows \cite{Schottenloher1997} \cite{Nam1999}:
 \begin{align*}
@@ -75,10 +90,38 @@ So our Lie bracket is:
   &= ((1-m)-(1-n))(- e^{-i n \theta - i m \theta}) \frac{d}{d \theta} f(\theta) \\
   &=(n-m)L_{n+m} f(\theta)
 \end{align*}
-\section{The Weyl Derivative}
+Or equivalently:
+\begin{align*}
+W &:= \C \{L_n: n \in \Z\} \\
+L_n &:= -z^{n+1} \frac{d}{d z}
+\end{align*}
+Acting again on Fourier representable functions:
+\begin{align*}
+f(z)  &=\sum_{n=0}^{\infty} c_n z \\
+z &\in \C
+\end{align*} 
+With the same bracket.
+\section{The Combinatorics of $(a;q)_z$}
+In \cite{díaz2024continuousanaloguespochhammersymbol} they extend the $k$-Pochhammer symbol from $R \times R \times \N \to R$ to a more general formulation:
+\begin{align*}
+  (x,y,z) &= y^z \frac{\Gamma(\frac{x}{y}+z)}{\Gamma(\frac{x}{y})}
+\end{align*}
+With this we derive a more general $q$-Pochhammer expression which is necessary for extending the $q$-derivative to complex values in $q$. 
+\begin{align*}
+  (a;q)_z = \frac{(a;q)_\infty}{(aq^z;q)_\infty} 
+\end{align*}
+By noting that: $\Gamma_q = \frac{(q;q)_\infty}{(q^z;q)_\infty} (1-q)^{1-z}$ we obtain:
+\begin{align*}
+  (a;q)_z &= \exp(-\frac{\Li_2 (aq^z)-\Li_2(a)}{\ln(q)})
+\end{align*}
+Where $\Li_2$ is the dilogarithm. Or equivalently:
+\begin{align*}
+  (a;q)_z &= \exp(\int_0^z\ln(1-aq^{t})dt)
+\end{align*}\qedsymbol
+\section{The Weyl and $q$ Derivatives}
+\subsection{Weyl Derivatives Commute}
 The (holomorphic) Weyl derivative $\partial^s$ \cite{article} acts on Fourier representable functions 
 $f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$\footnote{In \cite{article} they define the zero mode to be zero to avoid dividing by zero.} by:
-We can include constant zero modes in $\theta$ by mapping them to zero under strictly negative $s$.
 \begin{align*}
   \partial^s f(\theta)= \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta}
 \end{align*}
@@ -87,32 +130,106 @@ Then we have:
   \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta} &= \sum_{n=1}^\infty (in)^s a_n e^{i n \theta} + (-in)^s a_{-n} e^{-i n \theta} \\
   &= i^s \sum_{n=1}^\infty (n)^s a_n e^{i n \theta} + (-n)^s a_{-n} e^{-i n \theta} \\
 \end{align*}
+We can include constant zero modes in $\theta$ by mapping them to zero under strictly negative $s$.
 It can be shown these derivatives commute:
 \begin{align*}
   \partial^\nu \partial^\mu f &= \partial^\nu i^\mu \sum_{n=1}^\infty (n)^\mu a_n e^{i n \theta} + (-n)^\mu a_{-n} e^{-i n \theta}
-  &= \sum_{n=1}^\infty (n)^{\nu+\mu} a_n e^{i n \theta} + (-n)^{\mu+\nu} a_{-n} e^{-i n \theta}
+  &= \sum_{n=1}^\infty (n)^{\nu+\mu} a_n e^{i n \theta} + (-n)^{\mu+\nu} a_{-n} e^{-i n \theta} \qedsymbol
 \end{align*}
-\qedsymbol
 It is clear that $s$ can take on any value in $\C$. 
-\section{The Complex Parameter Witt Algebra}
+\subsection{Fractional Leibniz}
+In \cite{Leibniz} they construct a Leibniz rule on an equivalent expression of Weyl derivatives:
+\begin{align*}
+  _zD^\alpha_{q,\infty} \{f(z)\} = \frac{q^{-\mu (1 +\mu)/2}}{\Gamma_q (- \mu)}\int_0^\infty (t -z)_{-\mu -1} f(t q^{1+\mu}) d(t;q)
+\end{align*}
+Where $\Gamma_q$ is once again the $q$-Gamma function. Where:
+\begin{align*}
+ \int_z^\infty f(t) d(t;q)=z(1-q)\sum_{k=1}^\infty q^{-k} f(zq^{-k})
+\end{align*}
+And in the particular case $f(z) = z^{-p}$ we have:
+\begin{align*}
+  _zD^\alpha_{q,\infty} \{z^{-p}\} = \frac{\Gamma_q(p+\alpha)}{\Gamma_q(p)}q^{- \alpha p+\alpha(1-\alpha)/2} z^{-p-\alpha} 
+\end{align*}
+They prove a fractional Leibniz Rule:
+\begin{align*}
+  _z D^\alpha_{q,\infty} \{U(z)V(z)\} &= \sum_{r=0}^\alpha \frac{(-1)^r q^{r(r+1)/2}(q^{-\alpha};q)_r}{(q;q)_r} \\
+  & _z D^{\alpha-r}_{q,\infty} \{U(z)\}_z D^\alpha_{q,\infty} \{V(zq^{\alpha-r})\}
+\end{align*}
+By our work in Section 3 and Section 4.1 we can now extend to any complex $\alpha$ with a classic Riemann integral over $r$:
+\begin{align}
+  _z D^\alpha_{q,\infty} \{U(z)V(z)\} &= \int_0^\alpha \frac{(-1)^r q^{r(r+1)/2}(q^{-\alpha};q)_r}{(q;q)_r} \nonumber\\
+  & _z D^{\alpha-r}_{q,\infty} \{U(z)\}_z D^\alpha_{q,\infty} \{V(zq^{\alpha-r})\} dr \nonumber\\
+  A(r) & = \frac{(-1)^r q^{r(r+1)/2}(q^{-\alpha};q)_r}{(q;q)_r} \label{A(r)}
+\end{align}
+\section{The Complex Parameter Witt Algebras}
+\subsection{La Nave's and Philips' Work}
 In \cite{La_Nave_2019} they build a fractional Witt Algebra:
 \begin{align*}
-  L_n^a := -i e^{-i a(n+1)\theta}\partial^a , a \in \R \\
-  \Gamma_p (s) := \frac{\Gamma(a(s+p)+1)}{\Gamma(a(s+p-1)+1)} , p \in \Z\\
+  L_n^{a'} &:= -i e^{-i a(n+1)\theta}\partial^a , a \in \R \\
+  \Gamma_p (s) &:= \frac{\Gamma(a(s+p)+1)}{\Gamma(a(s+p-1)+1)} , p \in \Z\\
   A_{p,q} &:= \Gamma_p(s) - \Gamma_q(s) 
 \end{align*}
 Where $\Gamma$ is the Gamma function. 
-With relations:
+We have bracket:
 \begin{align*}
-  [L_n^a,L_m^a] &= A_{m,n} (s) \otimes L_{n+m}^a
+  [L_n^{a'},L_m^{a'}] &= A_{m,n} (s) \otimes L_{n+m}^{a'}
 \end{align*}
-We observe that $\Gamma(z) $ is defined for all complex $z \not \in - \mathbb{N}$. Furthermore in Section 3 the Weyl derivative can be taken from $\C$. Consequently the parameter $a$ in our generators can also be generalized to $\C$.
-Therefore we have the extension of this algebra from $a \in \R$ to $a \in \C$ and $\Gamma \in \R$ to $\Gamma \in \C$ and therefore of $\Gamma_p \in \R$ to $\Gamma_p \in \C$ and lastly $A_{p,q} (s) \in \R$ to a value in $\C$. 
-However, $p,q$ remain $\in \Z$. Consequently the structure constraints in $A$ become meromorphic functions, defining a Lie algebra over a field of complex-valued functions.  
+We observe that $\Gamma(z) $ is defined for all complex $z \not \in - \mathbb{N}$. Furthermore in Section 4 the Weyl derivative can be taken from $\C$. Consequently the parameter $a$ in our generators can also be generalized to $\C$.
+Therefore we have the extension of this algebra from $a \in \R$ to $a \in \C$ and $\Gamma(z) \in \R$ to $\Gamma(z) \in \C$ for a meromorphic structure constraint in $A$. And therefore of $\Gamma_p \in \R$ to $\Gamma_p \in \C$ and lastly $A_{p,q} (s) \in \R$ to a value in $\C$. 
+However, $p,q$ $(n,m)$ remain $\in \Z$. Consequently the structure constraints in $A$ become meromorphic functions, defining a Lie algebra over a field of complex-valued functions.  
+\qedsymbol
+\subsection{Complexified q-Witt Relations in Purohit's Construction}
+We define:
+\begin{align*}
+  L''^\alpha_n &:= -z^{n+1} _zD_{q,\infty}^\alpha, \alpha \in \C, q \in \C \\
+  W'' &:= \C\{L^\alpha_n, n \in \Z\}
+\end{align*}
+We now compute the bracket on an arbitrary $V(z)$. 
+\begin{align}
+  V(z) &= \sum_{k=0}^\infty z^k C_k \nonumber \\
+  _zD_{q,\infty}^\alpha V(z) &= \sum_{k=0}^\infty C_k \frac{\Gamma_q(-k + \alpha)}{-k} q^{\alpha k + \alpha(1-\alpha)/2} z^{k-\alpha}\nonumber \\
+  _zD_{q,\infty}^\alpha V(zq^{\alpha-r}) &= \sum_{k=0}^\infty C_k \frac{\Gamma_q(-k + \alpha)}{\Gamma_q(-k)} q^{\alpha k + \alpha(1-\alpha)/2} z^{k-\alpha} q^{(k-\alpha)(\alpha -r)}\nonumber \\
+  (_zD_{q,\infty}^\alpha) _zD_{q,\infty}^\alpha V(zq^{\alpha -r})&= \sum_{k=0}^\infty C_k \frac{\Gamma_q(-k + 2\alpha)}{\Gamma_q(-k+\alpha)}  \frac{\Gamma_q(-k + \alpha)}{\Gamma_q(-k)} \nonumber\\
+  &q^{\alpha k + \alpha(1-\alpha)/2}q^{\alpha (k-\alpha) + \alpha(1-\alpha)/2} q^{(k-\alpha)(\alpha -r)}z^{k-2\alpha}  \nonumber \\
+  g(r) &= \sum_{k=0}^\infty C_k  \frac{\Gamma_q(-k + 2\alpha)}{\Gamma_q(-k)} q^{3\alpha k -2\alpha^{2} + \alpha(1-\alpha)-rk+r \alpha} z^{k-2\alpha} \label{g(r)}
+\end{align}
+We need the $\alpha-r$ derivative on $-z^{m+1}$:
+\begin{align}
+  f(r,m) = _zD_{q,\infty}^{\alpha-r} (-z^{m+1}) &=\frac{\Gamma_q(-m -1+\alpha-r)}{\Gamma_q(-m -1)}q^{(\alpha-r)m+(\alpha-r)(1-\alpha+r)/2}z^{m+1 -\alpha +r} \label{f(r,m)}
+\end{align}
+We have a half-bracket:
+\begin{align}
+  L^{''\alpha}_{n} L^{''\alpha}_{m}V(z) &= \sum_{k=0}^{\infty} C_k \frac{\Gamma_q(-k+2\alpha)}{\Gamma_q(-k)} \cdot z^{k + m + 1 - 3\alpha} \cdot q^{3\alpha k + \alpha m - \frac{7\alpha^2}{2} + \frac{3\alpha}{2}} \nonumber\\
+&\cdot \int_{0}^{\alpha} \frac{(-1)^{r}(q^{-\alpha};q)_{r}}{\Gamma_q(-m-1)(q;q)_{r}} \Gamma_q(-m-1+\alpha-r) \cdot q^{\,r\left(-\frac{r}{2} + 2\alpha - k - m - \frac{1}{2}\right)} z^{\,r}  dr \nonumber
+\end{align}
+So by combining \ref{f(r,m)}, \ref{g(r)}, and \ref{A(r)} have relations:
+\begin{align*}
+  [L^{''\alpha}_n , L^{''\alpha}_m] &= \int_0^\alpha A(r) g(r) (f(r,m)-f(r,n)) dr
+\end{align*}
+Clearly the bracket is anti-symmetric and satisfies the Jacobi identity.
+\qedsymbol $\\$
+\subsection{A Middle Ground Deformation}
+We define:
+\begin{align*}
+  L'''^\alpha_n &:= -z^{n+1} \partial^\alpha, \alpha \in \C\\
+  W''' &:= \C\{L'''^\alpha_n, n \in \Z\} \\
+  f(z) &= \sum_{k=0}^\infty C_k z^k
+\end{align*}
+With:
+\begin{align*}
+  L_n^\alpha L_m^\alpha f(z) &= -z^{n+1} \partial^\alpha (-z^{m+1})\partial^\alpha \sum_{k=0}^\infty C_k z^k \\
+  &= \sum_{k=0}^\infty-(k+m+1-\alpha)^\alpha z^{-\alpha} L_{n+m}^\alpha f(z) \\
+\end{align*}
+So we have relations:
+\begin{align*}
+  [L_n^\alpha, L_m^\alpha] f(z) &=   &= \sum_{k=0}^\infty \left((k+n+1-\alpha)^{\alpha} - (k+m+1-\alpha)^{\alpha} \right) z^{-\alpha} L_{n+m}^{\alpha}f(z)
+\end{align*}
+\qedsymbol $\\$
+This isn't quite a Lie-Algebra structure as it depends on $k$ but it is a related algebra of deformed Fourier representations on the circle. Indeed, it is the algebra of Witt operators on the integers (a spectrum on $k \in \Z$). 
 \section{Conclusion}
-We have shown that the fractional Witt algebra introduced in \cite{LaNave2019} admits a natural extension to complex parameters. By complexifying the Weyl derivative and the associated Gamma function factors, we obtain a family of Lie algebras parameterized by complex numbers, with structure constants given by complex-valued functions. This extension preserves the algebraic relations while enabling new connections to complex analysis, representation theory, and mathematical physics. 
-
-Future work may include the study of representations of this complex-parameter algebra, its central extensions (e.g., a complex-parameter Virasoro algebra), and its applications in conformal field theory and integrable systems. The complexified structure also invites exploration of analytic properties of the structure constants, such as their behavior under meromorphic continuation and their relation to special functions.
+We have constructed several generalizations of the Witt algebra by introducing complex and fractional parameters into its defining structure. Using the Weyl derivative and $q$-calculus, we extended the classical Witt algebra to complex-valued generators and structure functions, leading to a family of Lie algebras whose brackets are governed by meromorphic functions. 
+The most significant contributions are the complexifications in $W'$ and the examination of the relations in $W'''$. 
+The complexification of the La Nave–Phillips and Purohit constructions allows for a unified treatment of fractional and $q$-deformed Witt algebras. Our results suggest natural directions for future research, including the study of central extensions, representation theory, and applications to conformal field theory and integrable systems with complex parameters.
 \section*{Conflict of Interest}
 On behalf of all authors, the corresponding author states that there is no conflict of interest.
 \section*{Data Availability Statement}
