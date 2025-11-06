@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\documentclass{artjltcopy}
+\documentclass{pdfArticle}
 
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, cite, graphics, geometry, cite}
@@ -50,7 +50,7 @@
 \maketitle
 \begin{abstract}
   This paper explores extensions of the Witt algebra to fractional and complex parameters using Weyl derivatives and $q$-calculus in order to understand a broader class of representations and meromorphic conformal functions. 
-  We generalize the classical Witt algebra by introducing complex-valued generators and structure functions, and we establish an analytic continuation of the $q$-Pochhammer symbol and the commutativity of complex parameter Weyl derivatives. 
+  We generalize the classical Witt algebra by introducing complex-valued generators and structure functions, and we establish an analytic continuation of the $q$-Pochhammer symbol and the complex parameter Weyl derivatives. 
   A fractional Leibniz rule is extended to complex parameters, and a complexified $q$-Witt algebra is constructed. 
   The results unify and extend earlier work by La Nave-Phillips and Purohit, providing a framework for infinite-dimensional Lie algebras with complex structure constants.
  \end{abstract}
@@ -69,18 +69,12 @@ We outline continuous combinatorial functions for use in $q$-deformations. We ex
 Our main contributions include:
 \begin{itemize}
     \item A generalization of the $q$-Pochhammer symbol and its connection to the dilogarithm and $q$-Gamma function.
-    \item An extension of the Weyl derivative to complex orders and a proof of its commutativity.
     \item A complexified fractional Leibniz rule and its application to $q$-deformed Witt algebras.
     \item The construction of three complex-parameter Witt-like algebras with meromorphic structure functions.
 \end{itemize}
 
 This work lays the groundwork for further study of deformed Virasoro algebras and their representations in the complex setting.
-\subsection{Weyl Derivatives}
-The Weyl derivative provides a natural extension of classical differentiation to fractional and complex orders. For a function $f(\theta) = \sum_{n=-\infty}^{\infty} a_n e^{in\theta}$ with Fourier coefficients $a_n$, the Weyl derivative of order $s \in \mathbb{C}$ is defined as:
-\[
-\partial^s f(\theta) = \sum_{n=-\infty}^{\infty} (in)^s a_n e^{in\theta}.
-\]
-This operator extends the familiar integer-order derivatives to complex parameters while maintaining key properties such as commutativity: $\partial^\nu \partial^\mu = \partial^{\nu+\mu}$ for all $\nu, \mu \in \mathbb{C}$.
+
 
 \subsection{$q$-Calculus}
 $q$-calculus provides a deformation of classical calculus that interpolates between discrete and continuous mathematics. The $q$-derivative is defined as:
@@ -142,7 +136,7 @@ Where $\Li_2$ is the dilogarithm. Or equivalently:
 \qedsymbol
 We suffer the same restrictions as \cite{Leibniz} namely that both $a$ and $q$ must be in the unit disk.
 \section{The Weyl and $q$ Derivatives}
-\subsection{Weyl Derivatives Commute}
+\subsection{Weyl Derivatives}
 The (holomorphic) Weyl derivative $\partial^s$ \cite{article} acts on Fourier representable functions 
 $f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$\footnote{In \cite{article} they define the zero mode to be zero to avoid division by zero.} by:
 \begin{align*}
@@ -154,13 +148,6 @@ Then we have:
   &= i^s \sum_{n=1}^\infty (n)^s a_n e^{i n \theta} + (-n)^s a_{-n} e^{-i n \theta} \\
 \end{align*}
 We can include constant zero modes in $\theta$ by mapping them to zero under strictly negative $s$.
-It can be shown these derivatives commute:
-\begin{align*}
-  \partial^\nu \partial^\mu f &= \partial^\nu i^\mu \sum_{n=1}^\infty (n)^\mu a_n e^{i n \theta} + (-n)^\mu a_{-n} e^{-i n \theta} \\
-  &= i^\mu i^\nu \sum_{n=1}^\infty (n)^\mu n^\nu a_n e^{i n \theta} + (-n)^\mu (-n)^\nu a_{-n} e^{-i n \theta} \\
-  &= \sum_{n=1}^\infty (n)^{\nu+\mu} a_n e^{i n \theta} + (-n)^{\mu+\nu} a_{-n} e^{-i n \theta} \\
-  &= \partial^{\nu +\mu} f \qedsymbol
-\end{align*}
 It is clear that $s, \nu,\mu$ can take on any value in $\C$. 
 \subsection{Fractional Leibniz}
 In \cite{Leibniz} they construct a Leibniz rule on an equivalent expression of Weyl derivatives. We define the right handed $q$-Weyl-derivative:
@@ -250,8 +237,7 @@ Then by combining \ref{f(r,m)}, \ref{g(r)}, and \ref{A(r)} we have half bracket:
 \begin{Conjecture}
 Clearly the bracket is anti-symmetric but it remain the subject of future work if it satisfies the Jacobi identity.
 \begin{proof}
-  We sketch the proof but it requires a direct calculation of the integral and will be subject to future work. Putting $[L^{''\alpha}_p,[L^{''\alpha}_n , L^{''\alpha}_m]]$. 
-\end{proof}
+  We sketch the proof but it requires a direct calculation of the integral and will be subject to future work. \end{proof}
 \end{Conjecture}
 \subsection{A Middle Ground Deformation}
 We examine a Witt-like algebra of complex differential operators on $f$.
