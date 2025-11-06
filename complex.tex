@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\documentclass{pdfArticle}
+\documentclass{artjltcopy}
 
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, cite, graphics, geometry, cite}
@@ -63,14 +63,13 @@ The Witt algebra is a fundamental object in the theory of infinite-dimensional L
 Extensions to complex parameters are motivated by the need for analytic continuation in scattering amplitudes, connections with quantum groups where $q$ is a root of unity, or the study of meromorphic conformal field theory.
 In recent years, there has been growing interest in extending such structures to fractional and complex parameters, motivated by connections to $q$-analysis, fractional calculus, and meromorphic deformation theory.
 
-In this paper, we build on the work of La Nave and Phillips \cite{La_Nave_2019} $(W')$, who constructed a fractional Witt algebra with real parameters, and Purohit \cite{Leibniz} $(W'')$ who derived a $q$-analogue of the Leibniz rule. By combining these approaches, we extend the generators and structure functions to the complex domain, allowing for a richer class of Lie algebras with complex-valued structure constants.
-We outline continuous combinatorial functions for use in $q$-deformations. We extend the Weyl-derivative to complex parameters in $s$. Then we examine a complexification of the derivative parameter on three separate Witt structures the third being a middle ground between the $q$-analogue and Philips - La Nave's work $W'''$. 
-
+We construct three distinct pathways to a complex-parameter Witt algebra: $W'$ extends the La Nave-Phillips model by complexification, $W''$ builds a new algebra from the ground up using 
+$q$-calculus, and $W'''$ which serves as a canonical middle ground to compare the structures of the former two.
 Our main contributions include:
 \begin{itemize}
     \item A generalization of the $q$-Pochhammer symbol and its connection to the dilogarithm and $q$-Gamma function.
     \item A complexified fractional Leibniz rule and its application to $q$-deformed Witt algebras.
-    \item The construction of three complex-parameter Witt-like algebras with meromorphic structure functions.
+    \item The construction of three complex-parameter Witt-like algebras with meromorphic structure functions. 
 \end{itemize}
 
 This work lays the groundwork for further study of deformed Virasoro algebras and their representations in the complex setting.
@@ -104,7 +103,7 @@ So our Lie bracket is:
   &= ((1-m)-(1-n))(- e^{-i n \theta - i m \theta}) \frac{d}{d \theta} f(\theta) \\
   &=(n-m)L_{n+m} f(\theta)
 \end{align*}
-Or equivalently:
+Or an equivalent definition:
 \begin{align*}
 W &:= \C \{L_n: n \in \N\} \\
 L_n &:= -z^{n+1} \frac{d}{d z}
@@ -117,7 +116,7 @@ z &\in \C
 With the same bracket.
 \section{The Combinatorics of $(a;q)_z$}
 In \cite{díaz2024continuousanaloguespochhammersymbol} they extend the $k$-Pochhammer symbol from $R \times R \times \N \to R$ to a more general formulation.
-We follow suite to analytically extend the $q$-Pochhammer symbol. We have the standard $q$-Pochhammer symbol:
+We follow  to analytically extend the $q$-Pochhammer symbol. We have the standard $q$-Pochhammer symbol:
 \begin{align*}
   (a;q)_n := \prod_{k=0}^{n-1} (1-aq^k), n \in \N
 \end{align*}
@@ -138,7 +137,7 @@ We suffer the same restrictions as \cite{Leibniz} namely that both $a$ and $q$ m
 \section{The Weyl and $q$ Derivatives}
 \subsection{Weyl Derivatives}
 The (holomorphic) Weyl derivative $\partial^s$ \cite{article} acts on Fourier representable functions 
-$f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$\footnote{In \cite{article} they define the zero mode to be zero to avoid division by zero.} by:
+$f(\theta)= \sum_{n=-\infty}^\infty a_n e^{i n \theta}, a_0 = 0$.\footnote{In \cite{article} they define the zero mode to be zero to avoid division by zero.} by:
 \begin{align*}
   \partial^s f(\theta)= \sum_{n=-\infty}^\infty (in)^s a_n e^{i n \theta}
 \end{align*}
@@ -148,18 +147,18 @@ Then we have:
   &= i^s \sum_{n=1}^\infty (n)^s a_n e^{i n \theta} + (-n)^s a_{-n} e^{-i n \theta} \\
 \end{align*}
 We can include constant zero modes in $\theta$ by mapping them to zero under strictly negative $s$.
-It is clear that $s, \nu,\mu$ can take on any value in $\C$. 
+It is clear that $s$ can take on any value in $\C$.
 \subsection{Fractional Leibniz}
 In \cite{Leibniz} they construct a Leibniz rule on an equivalent expression of Weyl derivatives. We define the right handed $q$-Weyl-derivative:
 \begin{align*}
-  _zD^\alpha_{q,\infty} \{f(z)\} := \frac{q^{-\mu (1 +\mu)/2}}{\Gamma_q (- \mu)}\int_0^\infty (t -z)_{-\mu -1} f(t q^{1+\mu}) d(t;q)
+  _zD^\alpha_{q,\infty} \{f(z)\} := \frac{q^{-\alpha (1 +\alpha)/2}}{\Gamma_q (- \alpha)}\int_0^\infty (t -z)_{-\alpha -1} f(t q^{1+\alpha}) d(t;q)
 \end{align*}
 Where $\Gamma_q$ is once again the $q$-Gamma function.\footnote{Note the meromorphicity of $\Gamma_q$ restricting the domain.} Where we define a $q$-integral:
 \begin{align*}
  \int_z^\infty f(t) d(t;q):=z(1-q)\sum_{k=1}^\infty q^{-k} f(zq^{-k})
 \end{align*}
 \begin{lemma}
-And in the particular case $f(z) = z^{-p}$ we have\cite{Leibniz}:
+And in the particular case $f(z) = z^{-p}$ we adopt from \cite{Leibniz}:
 \begin{align*}
   _zD^\alpha_{q,\infty} \{z^{-p}\} = \frac{\Gamma_q(p+\alpha)}{\Gamma_q(p)}q^{- \alpha p+\alpha(1-\alpha)/2} z^{-p-\alpha} 
 \end{align*}
@@ -185,7 +184,7 @@ By our work in Section 3 and Section 4.1 we can now extend to any complex $\alph
 \end{align}
 \footnote{Note the convergence of \ref{A(r)} with respect to $r$ within our $\alpha,q$ disks.}
 \section{The Complex Parameter Witt Algebras}
-\subsection{La Nave and Philips' Work}
+\subsection{La Nave and Phillips' Work}
 In \cite{La_Nave_2019} they build a fractional Witt Algebra:
 \begin{align*}
   L'^{a}_n &:= -i e^{-i a(n+1)\theta}\partial^a , a \in \R \\
@@ -195,13 +194,13 @@ In \cite{La_Nave_2019} they build a fractional Witt Algebra:
 Where $\Gamma$ is the Gamma function. 
 We have bracket:
 \begin{align*}
-  [L'{a}_n,L'^{a}_m] &= A_{m,n} (s) \otimes L'^{a}_{n+m}
+  [L'^{a}_n,L'^{a}_m] &= A_{m,n} (s) \otimes L'^{a}_{n+m}
 \end{align*}
 $s$ is a complex parameter of the representation.$\\$
 We observe that $\Gamma(z) $ is defined for all complex $z \not \in - \mathbb{N}$. Furthermore in Section 4 the Weyl derivative can be taken from $\C$. Consequently the parameter $a$ in our generators can also be generalized to $\C$.
 Therefore we have the extension of this algebra from $a \in \R$ to $a \in \C$ and $s \in \C$ and therefore of $\Gamma_p \in \R$ to $\Gamma_p \in \C$. This extends the representation structure constraints in $A_{p,q} (s) \in \R$ to a value in $\C$. 
 However, $p,q$ $(n,m)$ remain $\in \Z$. \qedsymbol
-\subsection{Complexified q-Witt Relations in Purohit's Construction}
+\subsection{Complexified $q$-Witt Relations in Purohit's Construction}
 We define:
 \begin{align*}
   L''^\alpha_n &:= -z^{n+1} _zD_{q,\infty}^\alpha, \alpha \in \C, q \in \C \\
@@ -229,15 +228,13 @@ We need the $\alpha-r$ derivative on $-z^{m+1}$ so we use Lemma 4.2 again:
 \begin{align}
   f(r,m) = _zD_{q,\infty}^{\alpha-r} (-z^{m+1}) &=\frac{\Gamma_q(-m -1+\alpha-r)}{\Gamma_q(-m -1)}q^{(\alpha-r)m+(\alpha-r)(1-\alpha+r)/2}z^{m+1 -\alpha +r} \label{f(r,m)}
 \end{align}
-Then by combining \ref{f(r,m)}, \ref{g(r)}, and \ref{A(r)} we have half bracket:
+Then by combining \ref{f(r,m)}, \ref{g(r)}, and \ref{A(r)} we have 'half-bracket':
 \begin{align}
   L^{''\alpha}_{n} L^{''\alpha}_{m} V(z) &= -z^{n+1} \int_{0}^{\alpha} A(r) g(r) f(r,m) dr
 \end{align}
 \qedsymbol
 \begin{Conjecture}
 Clearly the bracket is anti-symmetric but it remain the subject of future work if it satisfies the Jacobi identity.
-\begin{proof}
-  We sketch the proof but it requires a direct calculation of the integral and will be subject to future work. \end{proof}
 \end{Conjecture}
 \subsection{A Middle Ground Deformation}
 We examine a Witt-like algebra of complex differential operators on $f$.
@@ -261,7 +258,7 @@ This isn't quite a Lie-Algebra structure as it depends on $k$ but it is a relate
 The most precise description for $W'''$ is that it is an example of a non-linear Lie algebra or, more specifically, an infinite-dimensional Lie algebra of differential operators with functional coefficients that fails to form a basis in the standard Lie algebra sense.
 \section{Conclusion}
 We have constructed several generalizations of the Witt algebra by introducing complex and fractional parameters into its defining structure. Using the Weyl derivative and $q$-calculus, we extended the classical Witt algebra to complex-valued generators and structure functions, leading to a family of Lie algebras whose brackets are governed by meromorphic functions. 
-Remaining to check the Jacobi identity of $W''$.
+Remaining and of most importance is to check the Jacobi identity of $W''$. Ideally, if we have right handed $q$-Weyl derivatives equivalent to our base Weyl derivative then $W'' \cong W'''$.}
 The most significant contributions are the complexifications in $W'$ and the examination of the relations in $W'''$. 
 The complexification of the La Nave-Phillips and Purohit constructions allows for a unified treatment of fractional and $q$-deformed Witt algebras. Our results suggest natural directions for future research, including the study of central extensions, representation theory, and applications to conformal field theory and integrable systems with complex parameters.
 \section*{Conflict of Interest}
